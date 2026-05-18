@@ -50,7 +50,6 @@ namespace I2CBridge.Devices;
 public class Eeprom24xx08 : II2cDevice, IMemoryDevice
 {
     // Device Constants
-    private const byte DefaultSlaveAddress = 0x50;
     private const int TotalCapacity = 1024;           // 8 Kbits = 1024 bytes
     private const int BlockSize = 256;                // 256 bytes per block
     private const int PageSize = 16;                  // Maximum 16 bytes per page write
@@ -98,7 +97,7 @@ public class Eeprom24xx08 : II2cDevice, IMemoryDevice
     /// </summary>
     /// <param name="deviceId">Unique identifier for this device instance.</param>
     /// <param name="bridge">The I2C bridge used for communication.</param>
-    /// <param name="slaveAddress">The I2C slave address (default: 0x50).</param>
+    /// <param name="slaveAddress">The I2C slave address.</param>
     /// <param name="logger">Optional logger for diagnostics.</param>
     /// <exception cref="ArgumentException">Thrown if deviceId is null or empty.</exception>
     /// <exception cref="ArgumentNullException">Thrown if bridge is null.</exception>
@@ -106,7 +105,7 @@ public class Eeprom24xx08 : II2cDevice, IMemoryDevice
     public Eeprom24xx08(
         string deviceId,
         II2cBridge bridge,
-        byte slaveAddress = DefaultSlaveAddress,
+        byte slaveAddress,
         ILogger<Eeprom24xx08>? logger = null)
     {
         ArgumentException.ThrowIfNullOrEmpty(deviceId, nameof(deviceId));
