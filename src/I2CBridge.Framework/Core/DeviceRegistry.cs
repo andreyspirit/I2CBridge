@@ -65,11 +65,7 @@ public class DeviceRegistry : IDisposable
     public void Register(II2cDevice device)
     {
         ThrowIfDisposed();
-
-        if (device == null)
-        {
-            throw new ArgumentNullException(nameof(device));
-        }
+        ArgumentNullException.ThrowIfNull(device, nameof(device));
 
         _lock.EnterWriteLock();
         try
@@ -105,11 +101,7 @@ public class DeviceRegistry : IDisposable
     public bool Unregister(string deviceId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(deviceId))
-        {
-            throw new ArgumentException("Device ID cannot be null or empty.", nameof(deviceId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(deviceId, nameof(deviceId));
 
         _lock.EnterWriteLock();
         try
@@ -144,11 +136,7 @@ public class DeviceRegistry : IDisposable
     public II2cDevice GetDevice(string deviceId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(deviceId))
-        {
-            throw new ArgumentException("Device ID cannot be null or empty.", nameof(deviceId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(deviceId, nameof(deviceId));
 
         _lock.EnterReadLock();
         try
@@ -242,11 +230,7 @@ public class DeviceRegistry : IDisposable
     public bool Contains(string deviceId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(deviceId))
-        {
-            throw new ArgumentException("Device ID cannot be null or empty.", nameof(deviceId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(deviceId, nameof(deviceId));
 
         _lock.EnterReadLock();
         try

@@ -69,16 +69,8 @@ public class I2cBridgeFactory : IDisposable
     public void RegisterBridge(string bridgeId, II2cBridge bridge)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(bridgeId))
-        {
-            throw new ArgumentException("Bridge ID cannot be null or empty.", nameof(bridgeId));
-        }
-
-        if (bridge == null)
-        {
-            throw new ArgumentNullException(nameof(bridge));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(bridgeId, nameof(bridgeId));
+        ArgumentNullException.ThrowIfNull(bridge, nameof(bridge));
 
         _lock.EnterWriteLock();
         try
@@ -115,11 +107,7 @@ public class I2cBridgeFactory : IDisposable
     public II2cBridge GetBridge(string bridgeId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(bridgeId))
-        {
-            throw new ArgumentException("Bridge ID cannot be null or empty.", nameof(bridgeId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(bridgeId, nameof(bridgeId));
 
         _lock.EnterReadLock();
         try
@@ -147,11 +135,7 @@ public class I2cBridgeFactory : IDisposable
     public void SetActiveBridge(string bridgeId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(bridgeId))
-        {
-            throw new ArgumentException("Bridge ID cannot be null or empty.", nameof(bridgeId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(bridgeId, nameof(bridgeId));
 
         var bridge = GetBridge(bridgeId);
 
@@ -246,11 +230,7 @@ public class I2cBridgeFactory : IDisposable
     public bool Contains(string bridgeId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(bridgeId))
-        {
-            throw new ArgumentException("Bridge ID cannot be null or empty.", nameof(bridgeId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(bridgeId, nameof(bridgeId));
 
         _lock.EnterReadLock();
         try
@@ -274,11 +254,7 @@ public class I2cBridgeFactory : IDisposable
     public bool UnregisterBridge(string bridgeId)
     {
         ThrowIfDisposed();
-
-        if (string.IsNullOrEmpty(bridgeId))
-        {
-            throw new ArgumentException("Bridge ID cannot be null or empty.", nameof(bridgeId));
-        }
+        ArgumentException.ThrowIfNullOrEmpty(bridgeId, nameof(bridgeId));
 
         _lock.EnterWriteLock();
         try

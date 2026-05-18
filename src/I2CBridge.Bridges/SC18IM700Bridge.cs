@@ -45,7 +45,8 @@ public class Sc18im700Bridge : II2cBridge
     /// <exception cref="ArgumentNullException">Thrown if transport is null.</exception>
     public Sc18im700Bridge(ITransport transport, ILogger<Sc18im700Bridge>? logger = null)
     {
-        _transport = transport ?? throw new ArgumentNullException(nameof(transport));
+        ArgumentNullException.ThrowIfNull(transport, nameof(transport));
+        _transport = transport;
         _logger = logger;
         _protocol = new SC18IM700Protocol(logger as ILogger<SC18IM700Protocol>);
 

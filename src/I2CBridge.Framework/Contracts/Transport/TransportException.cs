@@ -31,7 +31,8 @@ namespace I2CBridge.Framework.Contracts.Transport
             Exception? innerException = null)
             : base(message, innerException)
         {
-            ErrorCode = errorCode ?? throw new ArgumentNullException(nameof(errorCode));
+            ArgumentNullException.ThrowIfNull(errorCode, nameof(errorCode));
+            ErrorCode = errorCode;
             IsRecoverable = isRecoverable;
         }
     }
