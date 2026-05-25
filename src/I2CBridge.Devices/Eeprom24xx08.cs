@@ -1,10 +1,12 @@
 using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using I2CBridge.Framework.Contracts;
 using I2CBridge.Framework.Contracts.Devices;
 using I2CBridge.Framework.Contracts.Transport;
+using I2CBridge.Framework.Contracts.Bridge;
 
 namespace I2CBridge.Devices;
 

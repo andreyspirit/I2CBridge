@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace I2CBridge.Framework.Contracts
+namespace I2CBridge.Framework.Contracts.Bridge
 {
     /// <summary>
     /// Represents an I2C bridge that converts I2C commands to transport protocol

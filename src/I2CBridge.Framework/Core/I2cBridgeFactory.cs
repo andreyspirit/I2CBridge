@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Microsoft.Extensions.Logging;
-using I2CBridge.Framework.Contracts;
+using I2CBridge.Framework.Contracts.Bridge;
 
 namespace I2CBridge.Framework.Core;
 

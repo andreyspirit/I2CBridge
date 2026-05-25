@@ -4,8 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using I2CBridge.Framework.Contracts;
 using I2CBridge.Framework.Contracts.Devices;
-
-namespace I2CBridge.Devices;
+using I2CBridge.Framework.Contracts.Bridge;
 
 /// <summary>
 /// Maxim DS3231 Real-Time Clock with Square-Wave Output Implementation
